@@ -11,7 +11,7 @@ function Country(props) {
         
         <div className="infor">
                 <h4>{ nam}</h4>
-                <p><span className='inf1'>Population: </span> <span>{ pop}</span ></p>
+                <p><span className='inf1'>Population: </span> <span>{Intl.NumberFormat().format(pop) }</span ></p>
                 <p><span className='inf1'>Region: </span> <span>{ reg}</span></p>
                 <p><span className='inf1'>Capital: </span> <span>{ cap}</span></p>
         </div>

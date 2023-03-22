@@ -1,8 +1,9 @@
 .card{
     width: 250px;
-    height: auto;
-    box-shadow: 5px 5px 40px rgba(0,0,0,0.3);
+    height: 100%;
+    display: block;
     background-color: hsl(0, 0%, 100%);
+    /* border: 2px solid blue; */
    
 }
 .image{
@@ -16,13 +17,15 @@
 }
 .infor{
     padding-left: 20px;
-    margin: 20px 0px 0px 0px;
+    margin: 20px 0px 20px 0px;
+    /* border: 2px solid green; */
 }
 .infor h4{
     margin-bottom: 20px;
 }
 .infor p{
     margin-bottom: 10px;
+    text-decoration: none;
 }
 .inf1{
     font-weight: 500;

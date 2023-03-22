@@ -15,8 +15,60 @@
     align-items: center;
     width: 88%;
     margin: 30px auto;
-    /* border: 2px solid red; */
 }
 .search{
     width: 30%;
+}
+
+
+.input-group{
+    
+    display: flex;
+    padding: 10px 20px;
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.1);
+    background-color: hsl(0, 0%, 100%);
+    border-radius: 5px;
+}
+
+input{
+    border: none;
+    flex: 2;
+}
+
+input:focus {
+  outline: none;
+}
+input::-ms-clear {
+  display: none;
+}
+
+.input-group-append{
+    margin-right: 10px;
+}
+.btn{
+    border: none;
+    background-color: transparent;
+}
+
+.container a{
+    text-decoration: none;
+    display: block;
+    box-shadow: 5px 5px 40px rgba(0,0,0,0.3);
+}
+
+.loading{
+    width: 100px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.loading img{
+    width: 100%;
+}
+.loading p{
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-top: -10px;
 }

@@ -11,7 +11,7 @@ function App() {
             <NavBar />
             <Routes>
                     <Route path='/' element={<HomePage />} />
-                    <Route path = '/:id' element = { <DetailPage />} />
+                    <Route path = '/:countryName' element = { <DetailPage />} />
             </Routes>
             </div>
         </Router>    
