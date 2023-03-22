@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLeftLong } from '@fortawesome/free-solid-svg-icons';
 import './detailPage.css'
+
 
 
 function DetailPage({ match }) {
@@ -17,11 +20,13 @@ function DetailPage({ match }) {
            if (!res.ok) throw new Error('something went wrong');
        const data = await res.json(); 
            setDataNeeded(data)
+             
        } catch (error) {
         console.log("error here "+ error);
        }
        
    }
+  console.log(dataNeeded);
     
     useEffect(() => {
         getData();
@@ -30,18 +35,18 @@ function DetailPage({ match }) {
     
     return (
         
-        <div>
+        <div className="wrapper">
             <div className="back">
-                <Link to = "/">Back</Link>
+                <Link to = "/"> <FontAwesomeIcon icon={faLeftLong} /> <span>Back</span> </Link>
             </div>
             {dataNeeded.length!==0? 
             <div className="detail-container">
                 <div className="image"> <img src={dataNeeded[0].flags.png} alt="country flag" srcset="" /> </div>
                 <div className="detail1">
                     <h2>{ dataNeeded[0].name.common}</h2>
-                    <div className="infor">
+                    <div className="infort">
                         <div className="infor1">
-                            <p><span className='inf1'>Native Name: </span> <span>{dataNeeded[0].native}</span ></p>
+                            <p><span className='inf1'>Native Name: </span> <span>{dataNeeded[0].name.official}</span ></p>
                             <p><span className='inf1'>Population: </span> <span> { new Intl.NumberFormat().format(dataNeeded[0].population) }</span ></p>
                             <p><span className='inf1'>Region: </span> <span>{ dataNeeded[0].region}</span ></p>
                             <p><span className='inf1'>Sub Region: </span> <span>{ dataNeeded[0].subregion}</span ></p>
@@ -49,7 +54,7 @@ function DetailPage({ match }) {
                         </div>
                         <div className="infor2">
                             <p><span className='inf1'>Top Level Domain: </span> <span>{ dataNeeded[0].tld}</span ></p>
-                            <p><span className='inf1'>Currencies: </span> <span>{dataNeeded[0].currence}</span ></p>
+                            <p><span className='inf1'>Currencies: </span> <span>{dataNeeded[0].currency}</span ></p>
                             <p><span className='inf1'>Languages: </span> english </p>
                         </div>
                     </div>

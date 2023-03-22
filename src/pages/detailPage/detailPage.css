@@ -1,3 +1,70 @@
 .detail-container .image{
-    width: 200px;
+    max-width: 350px;
+    height: auto;
+    /* border: 2px solid red; */
+}
+.wrapper{
+    /* border: 3px solid green; */
+    width: 90%;
+    margin: 0px auto;
+}
+.back{
+    /* border: 2px solid red; */
+    display: inline-block;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.1);
+}
+.back a{
+    text-decoration: none;
+
+}
+.back a span{
+    margin-left: 5px;
+}
+
+.detail-container{
+    display: flex;
+}
+.detail1{
+    /* border: 2px solid green; */
+    flex: 2;
+    margin-left: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    
+}
+.infort{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    /* border: 2px solid red; */
+}
+.infort .infor1{
+    /* border: 2px solid blue; */
+    margin-left: 0px;
+    flex: 1;
+}
+.infor2{
+    /* border: 2px solid yellow; */
+    flex: 1;
+}
+
+.infor1 p, .infor2 p{
+    margin-top: 10px;
+}
+.infort span{
+    
+    color: gray;
+}
+.infort .inf1{
+    font-weight: 500;
+    color: black;
+}
+.border{
+    margin-top: 20px;
 }
