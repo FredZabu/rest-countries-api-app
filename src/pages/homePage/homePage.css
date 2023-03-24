@@ -55,20 +55,3 @@ input::-ms-clear {
     display: block;
     box-shadow: 5px 5px 40px rgba(0,0,0,0.3);
 }
-
-.loading{
-    width: 100px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-}
-.loading img{
-    width: 100%;
-}
-.loading p{
-    font-weight: bold;
-    font-size: 18px;
-    letter-spacing: 2px;
-    text-align: center;
-    margin-top: -10px;
-}
