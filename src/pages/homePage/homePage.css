@@ -55,3 +55,13 @@ input::-ms-clear {
     display: block;
     box-shadow: 5px 5px 40px rgba(0,0,0,0.3);
 }
+
+@media screen and (max-width:500px) {
+    .search-filter-container{
+    display: block;
+}
+.search{
+    width: 100%;
+    margin-bottom: 10px;
+}
+}

@@ -1,8 +1,9 @@
 import React from 'react';
-import { NavBar } from './components/index.js';
+import { Loading, NavBar } from './components/index.js';
 import './app.css'
-import { HomePage, DetailPage } from './pages/index.js';
-import { BrowserRouter as Router, Routes , Route } from 'react-router-dom';
+import { DetailPage } from './pages/index.js';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+const HomePage = React.lazy(() => import('./pages/homePage/HomePage'));
 
 function App() {
     return (
@@ -10,7 +11,7 @@ function App() {
             <div>
             <NavBar />
             <Routes>
-                    <Route path='/' element={<HomePage />} />
+                    <Route path='/' element={<React.Suspense fallback={<Loading/>}> <HomePage /> </React.Suspense>} />
                     <Route path = '/:countryName' element = { <DetailPage />} />
             </Routes>
             </div>
