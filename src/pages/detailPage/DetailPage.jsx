@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { Loading } from '../../components/index.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLeftLong } from '@fortawesome/free-solid-svg-icons';
 import './detailPage.css'
@@ -64,7 +65,7 @@ function DetailPage({ match }) {
                     </div>
 
                 </div>
-            </div> : <div><h3>loading.....</h3></div>}
+            </div> : <Loading />}
         </div>
             
     )  

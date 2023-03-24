@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Country, Filter } from '../../components/index.js';
+import { Country, Filter, Loading } from '../../components/index.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import loading from '../../assets/duck.gif'
+
 import './homePage.css';
 
 function HomePage() {
@@ -90,10 +90,7 @@ function HomePage() {
                     countryData.length!==0?  countryData.map(({ name, capital, population, region , flags}) => {
                     return ( <Link to={`/${name.common}`} key={name.common} ><Country  nam = {name.common} cap = {capital} pop = {population} reg = {region} fla = {flags.png} /></Link> )
                     
-            }): <div className="loading">
-                    <img src={loading} alt="loading...." srcset="" />
-                    <p>Loading....</p>
-                </div>
+            }): <Loading />
                }
                 
             </div>

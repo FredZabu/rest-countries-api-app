@@ -1,0 +1,17 @@
+
+.loading{
+    width: 100px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.loading img{
+    width: 100%;
+}
+.loading p{
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-top: -10px;
+}
