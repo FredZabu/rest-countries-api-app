@@ -10,11 +10,14 @@ function DetailPage({ match }) {
     const params = useParams()
     
     const { countryName } = params;
-    console.log(countryName);
+
     const [dataNeeded, setDataNeeded] = useState([]);
     
     
-   const getData = async()=> {
+
+    
+    useEffect(() => {
+           const getData = async()=> {
        try {
         const res = await fetch(`https://restcountries.com/v3.1/name/${countryName}`);
            if (!res.ok) throw new Error('something went wrong');
@@ -26,9 +29,6 @@ function DetailPage({ match }) {
        }
        
    }
-  console.log(dataNeeded);
-    
-    useEffect(() => {
         getData();
        
     }, [countryName]);
@@ -70,10 +70,5 @@ function DetailPage({ match }) {
     )  
 }
 
-// function Btn() {
-//     return <div className="btn-detail"><p>the borders</p></div>
-// }
-// function Language() {
-//     return <span>language</span>
-// }
+
 export default DetailPage;
