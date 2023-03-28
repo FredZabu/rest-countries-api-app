@@ -11,7 +11,7 @@ function App() {
             <div>
             <NavBar />
             <Routes>
-                    <Route path='/' element={<React.Suspense fallback={<Loading/>}> <HomePage /> </React.Suspense>} />
+                    <Route path='/' element={<React.Suspense fallback={<Loading />}> <HomePage style={{ color:'white'}} /> </React.Suspense>} />
                     <Route path = '/:countryName' element = { <DetailPage />} />
             </Routes>
             </div>
