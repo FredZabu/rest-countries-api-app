@@ -12,9 +12,7 @@ This is a solution to the [REST Countries API with color theme switcher challeng
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
   - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
 - [Author](#author)
-
 
 ## Overview
 
@@ -27,7 +25,7 @@ Users should be able to:
 - Filter countries by region
 - Click on a country to see more detailed information on a separate page
 - Click through to the border countries on the detail page
-- Toggle the color scheme between light and dark mode *(optional)*
+- Toggle the color scheme between light and dark mode _(optional)_
 
 ### Screenshot
 
@@ -38,7 +36,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [https://github.com/FredZabu/rest-countries-api-app.git]
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [https://rest-countries-api-6h9brsotc-fredzabu.vercel.app/]
 
 ## My process
 
@@ -57,41 +55,38 @@ I learnt how to use react hooks like useState and useEffect hook.
 I also learnt how to change an object in an array.
 
 ```html
-<p><span className='inf1'>Currencies: </span> <span>{(Object.values(dataNeeded[0].currencies))[0].name}</span ></p>
+<p>
+  <span className="inf1">Currencies: </span>
+  <span>{(Object.values(dataNeeded[0].currencies))[0].name}</span>
+</p>
 ```
+
 ```js
- useEffect(() => {
-           const getData = async()=> {
-       try {
-        const res = await fetch(`https://restcountries.com/v3.1/name/${searchName}`);
-           if (!res.ok) throw new Error('something went wrong');
-       const data = await res.json(); 
-           setDataNeeded(data)
-            console.log(Object.values(data[0].currencies));
-             
-       } catch (error) {
-        console.log("error here "+ error);
-       }
-       
-   }
-        getData();
-       
-    }, [countryName, searchName]);
+useEffect(() => {
+  const getData = async () => {
+    try {
+      const res = await fetch(
+        `https://restcountries.com/v3.1/name/${searchName}`
+      );
+      if (!res.ok) throw new Error("something went wrong");
+      const data = await res.json();
+      setDataNeeded(data);
+      console.log(Object.values(data[0].currencies));
+    } catch (error) {
+      console.log("error here " + error);
+    }
+  };
+  getData();
+}, [countryName, searchName]);
 ```
 
 ### Continued development
 
- State management in react.
- Testing in react.
- other React hooks.
-
-### Useful resources
-
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone 
+State management in react.
+Testing in react.
+other React hooks.
 
 ## Author
 
 - Frontend Mentor - [Fred Zabulon](https://www.frontendmentor.io/profile/fredzabu)
 - Twitter - [@FredZabulon](https://twitter.com/FredZabulon)
-
