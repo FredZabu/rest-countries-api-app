@@ -15,6 +15,29 @@ function HomePage() {
     const [searchValue, setSearchValue] = useState('');
     useEffect(() => { datat() }, []);
 
+    
+     const searchByRegion = async (term) => {
+        try {
+            const res = await fetch(`https://restcountries.com/v3.1/region/${term}`);
+            
+            if (res.ok) {
+                const data = await res.json();
+                setCountryData(data); 
+            }
+            
+        } catch (error) {
+            console.log(error);
+        }
+        
+    }
+    
+
+    const getSearchRegion = (foundreg) => {
+        // setSearchRegion(foundreg);
+        searchByRegion(foundreg);
+        console.log("Got the resullt "+ foundreg);
+    }
+
     // function that fetches all country data
     const datat = async () => {
         try {
@@ -46,6 +69,7 @@ function HomePage() {
     }
     
 
+    
     // This function is called each time the value changes in the search bar
     const handleChange = (event) => {
         setSearchValue(event.target.value);
@@ -81,7 +105,7 @@ function HomePage() {
                 </div>
                     
                 <div className="filter">
-                     <Filter />
+                     <Filter handleRegSearch = {getSearchRegion} />
                    </div>
               
             </div>

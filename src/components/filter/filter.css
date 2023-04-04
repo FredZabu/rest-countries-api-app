@@ -1,6 +1,28 @@
+.filter-box{
+    position: relative;
+}
+
 .filter-container{
-     padding: 10px 20px;
+    padding: 10px 20px;
     box-shadow: 5px 5px 20px rgba(0,0,0,0.1);
     background-color: hsl(0, 0%, 100%);
     border-radius: 5px;
+    cursor: pointer;
+}
+
+.filter-container span{
+   margin-left: 10px;
+}
+
+.filter-choice{
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    margin-top: 2px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.1);
+}
+.filter-choice p{
+    padding: 10px 5px 5px 20px;
+    cursor: pointer;
 }

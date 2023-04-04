@@ -10,7 +10,8 @@ import './detailPage.css'
 function DetailPage({ match }) {
     const params = useParams()
     
-    const { countryName } = params;
+    let { countryName } = params;
+    const [searchName, setSearchName] = useState(countryName);
 
     const [dataNeeded, setDataNeeded] = useState([]);
     
@@ -20,10 +21,11 @@ function DetailPage({ match }) {
     useEffect(() => {
            const getData = async()=> {
        try {
-        const res = await fetch(`https://restcountries.com/v3.1/name/${countryName}`);
+        const res = await fetch(`https://restcountries.com/v3.1/name/${searchName}`);
            if (!res.ok) throw new Error('something went wrong');
        const data = await res.json(); 
            setDataNeeded(data)
+            console.log(Object.values(data[0].currencies));
              
        } catch (error) {
         console.log("error here "+ error);
@@ -32,8 +34,8 @@ function DetailPage({ match }) {
    }
         getData();
        
-    }, [countryName]);
-    
+    }, [countryName, searchName]);
+   
     return (
         
         <div className="wrapper">
@@ -55,14 +57,22 @@ function DetailPage({ match }) {
                         </div>
                         <div className="infor2">
                             <p><span className='inf1'>Top Level Domain: </span> <span>{ dataNeeded[0].tld}</span ></p>
-                            <p><span className='inf1'>Currencies: </span> <span>{dataNeeded[0].currency}</span ></p>
+                            <p><span className='inf1'>Currencies: </span> <span>{(Object.values(dataNeeded[0].currencies))[0].name}</span ></p>
                             <p><span className='inf1'>Languages: </span> english </p>
                         </div>
                     </div>
-                    <div className="border">
-                        <p>Border Countries</p>
-                       
-                    </div>
+                    {dataNeeded[0].borders && (<div className="border">
+                            <p>Border Countries:</p>
+                            <div className="border-container">
+                                {dataNeeded[0].borders.map((item) => {
+                            return <Border key={item} name={item} clickHandler={(itemName) => {
+                                console.log("itemName was called"+ itemName);
+                                setSearchName(itemName)
+                            }} />
+                       })}
+                            </div>
+                           
+                    </div>)}
 
                 </div>
             </div> : <Loading />}
@@ -71,5 +81,11 @@ function DetailPage({ match }) {
     )  
 }
 
+function Border({ name, clickHandler }) {
 
+    const handleClick = () => {
+        clickHandler(name)
+    }
+    return <span onClick={handleClick} >{ name}</span>
+}
 export default DetailPage;
